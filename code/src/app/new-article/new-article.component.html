@@ -1,0 +1,39 @@
+<h2 class="nav">Create Article</h2>
+<form (ngSubmit)="onSubmit()"  class="form-lay" [formGroup]="articleForm" novalidate>
+  <div class="form-group">
+    <h4 class="center-block"> Article title:
+      <input class="form-control" formControlName="title">
+    </h4>
+  </div>
+  <div class="form-group">
+    <h4 class="center-block">Intro text:
+      <input class="form-control" formControlName="introtext">
+    </h4>
+  </div>
+  <div class="form-group">
+    <h4 class="center-block">Full text:
+      <input class="form-control" formControlName="fulltext">
+    </h4>
+  </div>
+  <div class="form-group">
+    <h4 class="center-block">Category :
+      <select class="form-control" formControlName="cat">
+          <option *ngFor="let cat of categories" [value]="cat.id">{{cat.title}}</option>
+      </select>
+    </h4>
+  </div>
+  <div class="form-group">
+    <h4 class="center-block">Start publishing :
+      <input data-format="MM/dd/yyyy HH:mm:ss PP" type="date" class="form-control" formControlName="publishup">
+    </h4>
+  </div>
+  <div class="form-group">
+    <h4 class="center-block">Finish publishing :
+      <input type="date" class="form-control" formControlName="publishdown">
+    </h4>
+  </div>  
+
+  <input  class="save form-control" type="submit">
+
+
+</form>
