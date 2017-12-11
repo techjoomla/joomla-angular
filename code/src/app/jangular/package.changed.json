@@ -1,0 +1,10 @@
+{
+  "name": "joomla-angular",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    // "@angular/animations": "^5.1.0",
+    // "@angular/cdk": "^5.0.0",
+    // "@angular/material": "^5.0.0"
+  }
+}
