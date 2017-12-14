@@ -2,20 +2,33 @@ import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../src/environments/environment';
+
 import 'rxjs';
 
 @Injectable()
-export class ContentService
-{
-    baseUrl = 'http://ttpllt17-php7.local/joomla-for-ng/';
+export class ContentService {
+    baseUrl = environment['apiBase'];
 
-    constructor( private _httpClient : HttpClient ){}
+    constructor( private _httpClient: HttpClient ) { }
 
-    getArticles(){
+    getArticles(articleAlias, categoryId?, featured?, status? ) {
+        let articleGetUrl = 'index.php?option=com_api&app=articles&resource=article&format=raw';
+        articleGetUrl = articleAlias ? articleGetUrl + '&article_alias=' + articleAlias : articleGetUrl;
+        articleGetUrl = categoryId ? articleGetUrl + '&category_id=' + categoryId : articleGetUrl;
+        articleGetUrl = featured ? articleGetUrl + '&featured=true' : articleGetUrl;
+        articleGetUrl = status === 'archive' ? articleGetUrl + '&status=archive' : articleGetUrl;
+
         return this._httpClient
-                    .get(this.baseUrl + "index.php?option=com_api&app=articles&resource=article&format=raw")
+                    .get(this.baseUrl + articleGetUrl)
                     .map(data => {
+
+                        if (articleAlias) {
+                          return data['data']['data']['results'][0];
+                        }
+
                         return data['data']['data'];
                     });
     }
+
 }

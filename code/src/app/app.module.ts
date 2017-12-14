@@ -2,11 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { JangularModule } from './jangular/jangular.module';
+import { ClientProject } from './clientmodule/client.module';
 
 import { AppComponent } from './app.component';
 import 'hammerjs';
-
 
 @NgModule({
   declarations: [
@@ -14,7 +13,7 @@ import 'hammerjs';
   ],
   imports: [
     BrowserModule,
-    JangularModule,
+    ClientProject,
     RouterModule.forRoot([])
   ],
   providers: [],

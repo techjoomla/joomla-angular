@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {UsersModule} from './users/users.module';
+
+
+import { UsersModule } from './users/users.module';
 import { ContentModule } from './content/content.module';
 
-export { MenuService } from './services/menu.service';
-
 @NgModule({
-  imports: [
+    imports: [
     CommonModule,
     UsersModule,
     ContentModule
@@ -15,4 +15,7 @@ export { MenuService } from './services/menu.service';
   declarations: [],
   exports : [UsersModule, ContentModule]
 })
-export class JangularModule { }
+export class ClientProject
+{
+
+}

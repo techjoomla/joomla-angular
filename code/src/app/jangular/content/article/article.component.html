@@ -1,0 +1,12 @@
+<div class="custom-container">
+
+  <mat-card *ngIf="articleData">
+    <mat-card-header>
+          <mat-card-title> <h3> {{articleData.title}} </h3> </mat-card-title>
+
+        <mat-card-subtitle><i>Created by : </i> {{articleData.created_by.name}} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [innerHtml]="articleData.fulltext ? articleData.introtext + articleData.fulltext : articleData.introtext"></mat-card-content>
+  </mat-card>
+
+</div>
