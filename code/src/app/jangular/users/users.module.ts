@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { FlexLayoutModule } from "@angular/flex-layout";
+//import { FlexLayoutModule } from "@angular/flex-layout";
 import { JangularMaterial } from '../jangular.material.module';
 import { UserRouterModule } from './users.router.module';
 
@@ -17,8 +17,8 @@ import { RegistrationComponent } from './registration/registration.component';
     UserRouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    JangularMaterial,
-    FlexLayoutModule
+    JangularMaterial
+//    FlexLayoutModule
   ],
   declarations: [LoginComponent, ProfileComponent, RegistrationComponent],
   providers : [],

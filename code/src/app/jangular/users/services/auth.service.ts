@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../../../src/environments/environment';
 
 @Injectable()
 export class AuthService
 {
     private headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
-    baseUrl = 'http://ttpllt17-php7.local/joomla-for-ng/';
+    baseUrl = environment.apiBase; //'http://ttpllt17-php7.local/joomla-for-ng/';
     globalHeaders;
 
     constructor( private _httpClient : HttpClient ){
