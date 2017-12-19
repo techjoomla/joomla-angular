@@ -4,9 +4,7 @@
         <div *ngFor= "let article of articlesData.results">
             <mat-card>
                 <mat-card-header>
-                      <mat-card-title><a [routerLink]="['/article', article.alias]" > {{article.title}} </a> </mat-card-title>
-                      <mat-card-title> {{article.title}}</mat-card-title>
-                      
+                    <mat-card-title><a [routerLink]="[article.link]" > {{article.title}} </a> </mat-card-title>  
                     <mat-card-subtitle><i>Created by : </i> {{article.created_by.name}} </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content [innerHtml]="article.introtext"></mat-card-content>

@@ -12,18 +12,19 @@ export class ContentService {
 
     constructor( private _httpClient: HttpClient ) { }
 
-    getArticles(articleAlias, categoryId?, featured?, status? ) {
+    getArticles(articleAlias, categoryId?, featured?, status?, articleId?) {
         let articleGetUrl = 'index.php?option=com_api&app=articles&resource=article&format=raw';
         articleGetUrl = articleAlias ? articleGetUrl + '&article_alias=' + articleAlias : articleGetUrl;
         articleGetUrl = categoryId ? articleGetUrl + '&category_id=' + categoryId : articleGetUrl;
-        articleGetUrl = featured ? articleGetUrl + '&featured=true' : articleGetUrl;
+        articleGetUrl = featured ? articleGetUrl + '&featured=1' : articleGetUrl;
         articleGetUrl = status === 'archive' ? articleGetUrl + '&status=archive' : articleGetUrl;
+        articleGetUrl = articleId ? articleGetUrl + '&id=' + articleId : articleGetUrl;
 
         return this._httpClient
                     .get(this.baseUrl + articleGetUrl)
                     .map(data => {
 
-                        if (articleAlias) {
+                        if (articleAlias || articleId) {
                           return data['data']['data']['results'][0];
                         }
 

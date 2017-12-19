@@ -9,6 +9,7 @@ import { UserRouterModule } from './users.router.module';
 
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   imports: [
@@ -19,8 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
     JangularMaterial,
     FlexLayoutModule
   ],
-  declarations: [LoginComponent, ProfileComponent],
+  declarations: [LoginComponent, ProfileComponent, RegistrationComponent],
   providers : [],
-  exports : [LoginComponent, ProfileComponent]
+  exports : [LoginComponent, ProfileComponent, RegistrationComponent]
 })
 export class UsersModule { }

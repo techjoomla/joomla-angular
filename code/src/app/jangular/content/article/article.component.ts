@@ -12,7 +12,14 @@ export class ArticleComponent implements OnInit {
   articleData;
   @Input()
   set articleAlias (value) {
-    this.getArticle(value);
+    if(value)
+      this.getArticle(value);
+  }
+
+  @Input()
+  set articleId (value) {
+    if(value)
+      this.getArticle('', value);
   }
 
   constructor( private _contentService: ContentService ) { }
@@ -20,9 +27,8 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
   }
 
-  getArticle(alias) {
-          this._contentService.getArticles(alias).subscribe(articleData => {
-            console.log('articlesf asdf data ', articleData);
+  getArticle(alias, id?) {
+          this._contentService.getArticles(alias, '', '', '', id).subscribe(articleData => {
             this.articleData = articleData;
           });
   }

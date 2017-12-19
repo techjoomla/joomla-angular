@@ -1,17 +1,21 @@
-<div fxLayout fxLayoutAlign="center">
-  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+<div class='' fxLayout fxLayoutAlign="center">
+  <mat-card class="example-container">
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-    <mat-form-field class="example-full-width">
-      <input formControlName="username" matInput placeholder="Username" >
-    </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input formControlName="username" type='email' autocomplete="off" matInput placeholder="Username" >
+          </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <input formControlName="password" type="password" matInput placeholder="Password">
-    </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Password">
+          </mat-form-field>
 
-    <mat-checkbox>Remember me!</mat-checkbox>
+          <mat-checkbox>Remember me!</mat-checkbox>
 
-    <button type="submit" mat-raised-button color="primary">Login</button>
+          <button type="submit" mat-raised-button color="primary">Login</button>
 
-  </form>
+        </form>
+      </mat-card-content>
+  </mat-card>
 </div>

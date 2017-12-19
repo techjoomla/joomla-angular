@@ -6,6 +6,6 @@
 <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
 <div *ngIf='menus' class="button-row">
   <span *ngFor='let menu of menus' >
-    <a mat-button [routerLink]="['/', menu.route]"> {{ menu['title'] }} </a>
+    <a mat-button [routerLink]="['/', menu.route]" routerLinkActive="active"> {{ menu['title'] }} </a>
   </span>
 </div>

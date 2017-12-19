@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { MenuService } from './../../services/menu.service';
 
@@ -10,6 +10,7 @@ import { MenuService } from './../../services/menu.service';
 })
 export class MenuComponent implements OnInit {
 
+  @Input() menuType;
   shouldRun = true;
   menus;
   constructor(private _menuService: MenuService) {
@@ -17,7 +18,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._menuService.getMenus('mainmenu').subscribe(mainMenuData => {
+    this._menuService.getMenus(this.menuType).subscribe(mainMenuData => {
       console.log('this is main menu data ', mainMenuData);
       this.menus = mainMenuData['data'];
     });
