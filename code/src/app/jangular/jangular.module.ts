@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import {UsersModule} from './users/users.module';
 import { ContentModule } from './content/content.module';
 
+import { JAngularBaseService } from './services/jangularbase.service';
 export { MenuService } from './services/menu.service';
+
 
 @NgModule({
   imports: [
@@ -13,6 +15,7 @@ export { MenuService } from './services/menu.service';
     ContentModule
   ],
   declarations: [],
+  providers: [JAngularBaseService],
   exports : [UsersModule, ContentModule]
 })
 export class JangularModule { }
