@@ -1,0 +1,35 @@
+<div class='' fxLayout fxLayoutAlign="center">
+    <mat-card class="example-container">
+        <h2>User Registration</h2>
+        <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="name" autocomplete="off" matInput placeholder="Name" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="username" autocomplete="off" matInput placeholder="User Name" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="password" type="password" autocomplete="off" matInput placeholder="Password" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="cnfpassword" type="password" autocomplete="off" matInput placeholder="Confirm Password" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="emailid" type="email" autocomplete="off" matInput placeholder="Email" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="cnfemailid" type="email" autocomplete="off" matInput placeholder="Confirm Email" >
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary">Register</button>
+            <button type="cancel" mat-raised-button color="secondary">Cancel</button>
+
+        </form>
+    </mat-card>
+</div>
