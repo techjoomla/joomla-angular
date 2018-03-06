@@ -7,7 +7,7 @@ import { ArticleComponent } from './article/article.component';
 
 const appRoutes: Routes = [
   { path: '', component: ArticlesComponent },
-  { path: 'article/:article-alias', component: ArticleComponent }
+  { path: '**', component: ArticleComponent }
 ];
 
 @NgModule({

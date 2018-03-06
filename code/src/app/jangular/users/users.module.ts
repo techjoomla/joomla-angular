@@ -10,6 +10,8 @@ import { UserRouterModule } from './users.router.module';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginService, Base } from './services/index';
+import { AlertsService } from '@jaspero/ng2-alerts';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { RegistrationComponent } from './registration/registration.component';
 //    FlexLayoutModule
   ],
   declarations: [LoginComponent, ProfileComponent, RegistrationComponent],
-  providers : [],
+  providers : [LoginService, Base, AlertsService],
   exports : [LoginComponent, ProfileComponent, RegistrationComponent]
 })
 export class UsersModule { }

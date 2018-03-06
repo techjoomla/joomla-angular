@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpModule } from '@angular/http';
 import {UsersModule} from './users/users.module';
 import { ContentModule } from './content/content.module';
 
@@ -12,7 +12,8 @@ export { MenuService } from './services/menu.service';
   imports: [
     CommonModule,
     UsersModule,
-    ContentModule
+    ContentModule, 
+    HttpModule
   ],
   declarations: [],
   providers: [JAngularBaseService],

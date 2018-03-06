@@ -3,9 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
-  selector: 'japp-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'japp-loginn',
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
