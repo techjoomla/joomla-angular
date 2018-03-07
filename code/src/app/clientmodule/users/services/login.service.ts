@@ -30,7 +30,6 @@ export class LoginService {
         return result;
       }
       else {
-        console.log(result);
         if (result.data.auth) {
           localStorage.setItem('auth_token', result.data.auth);
           this.BaseService.globalHeaders.set("Authorization", 'Bearer ' + result.data.auth);

@@ -14,13 +14,18 @@ export class Base {
   refreshNav: EventEmitter<boolean> = new EventEmitter();
 
   constructor(public http: Http, private router: Router) {
-    console.log('Base Service');
     this.loggedIn = !!localStorage.getItem('auth_token');
     let authToken = localStorage.getItem('auth_token');
     this.globalHeaders = new Headers({ "Authorization": 'Bearer ' + authToken });
   }
 
   post(url: string, body: any, options) {
+    console.log('Base Service Post');
+    console.log('Base Service Post URL',url);
+    console.log('Base Service Post BODY',body);
+    console.log('Base Service Post OPTIONS',options);
+    console.log('HTTP');
+    console.dir(this.http);
     return this.http.post(url, body, { headers: options })
       .map(res => {
         let response = res.json();
@@ -42,7 +47,6 @@ export class Base {
         if (response.err_code == '403') {
           this.logout();
           this.router.navigate(['/login']);
-
           return response;
         }
         else {
@@ -56,6 +60,7 @@ export class Base {
     localStorage.removeItem('authorizedUser');
     this.globalHeaders = new Headers();
     this.loggedIn = false;
+    this.router.navigate(['/login']);
   }
 
   handleErrors(error: Response) {

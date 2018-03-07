@@ -28,14 +28,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-   if (this.LoginService.isLoggedIn()) {
+    if (this.LoginService.isLoggedIn()) {
       // Get the logged in user details
-        console.log('Usser Logged In');
+      this.router.navigate(['/profile']);
     }
     else {
       this.LoginService.logout();
       this.LoginService.refreshNav.emit();
-    }
+    } 
   }
 
   login = new FormGroup({
@@ -63,13 +63,12 @@ export class LoginComponent implements OnInit {
         if (result.data.auth) {
           // Get the agency details and store in to local storage
           localStorage.setItem('auth_token', result.data.auth);
-          this.LoginService.loggedIn = true;
           this._alert.create("info", "You are logged in successfully redirecting....", this.alertOptions);
+          this.LoginService.loggedIn = true;
           this.LoginService.getUserDetails(result.data.id)
             .subscribe(data => {
-              console.log('Result of the',data);
-              if (result.err_msg) {
-                this._alert.create("error", result.err_msg, this.alertOptions);
+              if (data.err_msg) {
+                this._alert.create("error", data.err_msg, this.alertOptions);
               }
               else {
                 localStorage.setItem('authorizedUser', JSON.stringify(data.data));
