@@ -7,9 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { JangularMaterial } from '../jangular.material.module';
 import { UserRouterModule } from './users.router.module';
 
-import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
+
 
 @NgModule({
   imports: [
@@ -20,8 +20,8 @@ import { RegistrationComponent } from './registration/registration.component';
     JangularMaterial
 //    FlexLayoutModule
   ],
-  declarations: [LoginComponent, ProfileComponent, RegistrationComponent],
+  declarations: [ProfileComponent, RegistrationComponent],
   providers : [],
-  exports : [LoginComponent, ProfileComponent, RegistrationComponent]
+  exports : [ ProfileComponent, RegistrationComponent]
 })
 export class UsersModule { }

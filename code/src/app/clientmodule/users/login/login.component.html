@@ -1,17 +1,40 @@
-<!--<div fxLayout fxLayoutAlign="center">
-  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
-
-    <mat-form-field class="example-full-width">
-      <input formControlName="username" matInput placeholder="Username" >
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <input formControlName="password" type="password" matInput placeholder="Password">
-    </mat-form-field>
-
-    <mat-checkbox>Remember me!</mat-checkbox>
-
-    <button type="submit" mat-raised-button color="primary">Login</button>
-
-  </form>
-</div>-->
+<!--div [ngBusy]="{busy: busy1, message: 'Loading...', wrapperClass:'truck-busy'}"></div-->
+<div class="col-md-6 col-md-offset-3">
+<div class="col-md-3 col-sm-6 col-xs-10 bg-white br-5 div-center">
+    <div class="row border-bottom-5 px-40">
+        <div class="col-xs-12">
+            <h2 class="font-bold my-15">Login</h2>
+        </div>
+    </div>
+    <form class="py-15 px-40 jobForm-modal" (ngSubmit)="onSubmit(login)" id="loginForm" [formGroup]="login">
+        <div class="form-group">
+            <label for="username">Login ID</label>
+            <input type="text" formControlName="username" name="username" id="username" class="form-control" required="required" placeholder="Login ID"/>
+            <div *ngIf="login.get('username').touched && login.get('username').hasError('required')" class="alert p-0 mt-5 text-danger"
+                role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> Login ID required
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" name="password" id="password" placeholder="Password" class="form-control"
+                required="required" />
+            <div *ngIf="login.get('password').touched && login.get('password').hasError('required')" class="alert p-0 mt-5 text-danger"
+                role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> Password required
+            </div>
+        </div>
+        <!--div class="form-actions text-center">
+            <button type="submit" class="btn btn-yellow font-bold" [disabled]="!login.valid">Login</button>
+        </div-->
+        <div class="form-group">
+            <button [disabled]="!login.valid" class="btn btn-primary">Login</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+        </div>
+    </form>
+    </div>
+</div>

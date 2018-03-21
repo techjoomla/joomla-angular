@@ -8,6 +8,9 @@ import { UserRouterModule } from './users.router.module';
 
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginService, Base, RegisterService } from './services/index';
+import { AlertsService } from '@jaspero/ng2-alerts';
 
 @NgModule({
   imports: [
@@ -17,8 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     FlexLayoutModule
   ],
-  declarations: [LoginComponent, ProfileComponent],
-  providers : [],
+  declarations: [LoginComponent, ProfileComponent, RegisterComponent],
+  providers : [LoginService, Base, AlertsService, RegisterService],
   exports : [LoginComponent, ProfileComponent]
 })
 export class UsersModule { }
